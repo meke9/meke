@@ -31,3 +31,7 @@ main {
 h1 {
     color: #5a2d0c;
 }
+td:last-child {
+    font-weight: bold;
+    color: rgb(23, 171, 179);
+  }
