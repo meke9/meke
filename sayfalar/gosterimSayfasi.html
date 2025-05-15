@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paketi Göster</title>
+ <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <h1>Mobilya Paketi</h1>
+  <p>İşte oluşturduğunuz paket:</p>
+
+  <table border="1" cellpadding="10" cellspacing="0" id="paketTablosu">
+    <thead>
+      <tr>
+        <th>Ürün</th>
+        <th>Adet</th>
+        <th>Renk</th>
+        <th>Ara Toplam</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+    <tfoot>
+      <tr>
+        <td colspan="3"><strong>Toplam Fiyat</strong></td>
+        <td id="toplamFiyat">₺0</td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const urunler = JSON.parse(localStorage.getItem('mobilyaPaket')) || [];
+      const tablo = document.getElementById("paketTablosu").getElementsByTagName("tbody")[0];
+      let toplam = 0;
+
+      urunler.forEach((urun) => {
+        const satir = tablo.insertRow();
+        satir.insertCell(0).innerText = urun.urunAdi;
+        satir.insertCell(1).innerText = urun.adet;
+        satir.insertCell(2).innerHTML = `<div style="width:30px; height:30px; background-color:${urun.renk}; border:1px solid #000;"></div>`;
+        satir.insertCell(3).innerText = urun.araToplam;
+        toplam += parseFloat(urun.araToplam.replace("₺", "").replace(",", ""));
+      });
+
+      const toplamTd = document.getElementById("toplamFiyat");
+      toplamTd.innerText = `₺${toplam.toLocaleString("tr-TR")}`;
+    });
+  </script>
+ <p>Ürünlerimizi incelemek için <a href="paketler.html">Geri Dön</a> tıklayın.</p>
+<footer class="site-footer">
+  <p>&copy; 2025 Modern Mobilya. Tüm hakları saklıdır.</p>
+</footer>
+
+
+</body>
+</html>
+        const adet = row.cells[1].innerText;
+ -->    
