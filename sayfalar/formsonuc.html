@@ -1,0 +1,31 @@
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Sonucu</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <nav>
+    <a href="../index.html">Ana Sayfa</a>
+    <a href="sayfalar/iletisim.html">İletişim</a>
+  </nav>
+
+  <h1>Form Bilgileriniz</h1>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const ad = urlParams.get('ad');
+    const email = urlParams.get('email');
+    const mesaj = urlParams.get('mesaj');
+
+    document.write("<p><strong>Ad Soyad:</strong> " + ad + "</p>");
+    document.write("<p><strong>Email:</strong> " + email + "</p>");
+    document.write("<p><strong>Mesaj:</strong> " + mesaj + "</p>");
+  </script>
+
+  
+<footer class="site-footer">
+  <p>&copy; 2025 Modern Mobilya. Tüm hakları saklıdır.</p>
+</footer>
+</body>
+</html>
